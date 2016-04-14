@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baby象家居SVN 管理</title>
+    <meta name="promotion" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <script src="http://cdn.babyxiang.cn/Public/static/js/jquery-2.1.0.min.js"></script>
+    <script>var jq = jQuery;</script>
+    <style>
+        .warp{ width: 90%; margin: 0 auto;}
+        .header{ text-align: center;}
+        .content{}
+        .content-left, .content-right {}
+        .content-left{width: 60%;float: left;}
+        .content-right{width: 40%;float: right;}
+        .submit {padding: 5px; border: 1px solid royalblue; text-decoration: none;}
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="header">
+            <h3>svn管理</h3>
+            <hr>
+        </div>
+        <div class="content">
+            <div class="content-left">
+                <form>
+                    <p><textarea name="content" id="svn_content" cols="130" rows="30"></textarea></p>
+                    <p><a href="javascript:void(0)" class="submit">提交</a> </p>
+                </form>
+            </div>
+            <div class="content-right">
+                <div class="r-head">日志<hr></div>
+                <div class="r-content"></div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+<script>
+    jq(function(){
+        jq('.submit').click(function(){
+            var content = jq('#svn_content').val()
+            jq.post("/svn.index", {content:content}, function(e){
+                var html = "<ul>"
+                for (i in e ){
+                    html += '<li>' + e[i] + '</li>'
+                }
+                html += '</ul>'
+                jq('.r-content').html(html)
+            }, 'json')
+        })
+
+    })
+</script>
+</body>
+</html>

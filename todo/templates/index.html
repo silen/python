@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Baby象家居预售超低价</title>
+    <meta name="promotion" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        .wrap .btn-wrap{
+            width:100%;
+            position: fixed;
+            bottom: 0;
+            left:0;
+        }
+        .wrap .btn-wrap a[class^="btn-"] {
+            width: 50%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index1.jpg?v=1.0" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index2.jpg?v=1.0" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index3.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index4.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index5.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index6.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index7.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index8.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index9.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index10.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index11.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index12.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index13.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index14.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index15.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index16.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index17.jpg" alt="" flag="1"/>
+    <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/index18.jpg" alt="" flag="1" style="margin-bottom: 68px;"/>
+
+
+    <div class="btn-wrap" >
+        <a class="btn-product" href="product.html">
+            <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/indexbtn-product.jpg" flag="1"/>
+        </a>
+        <a class="btn-sample" href="Sample.html">
+            <img src="images/loading.gif" _src="http://cdn.babyxiang.cn/zt/baby/images/indexbtn-sample.jpg" flag="1"/>
+        </a>
+    </div>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/Public/static/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="/Public/static/js/wechat/baby.js"></script>
+<script src="/Public/static/js/jquery.cookie.js"></script>
+<script type="text/javascript">
+    $(function () {
+                var $img = $('img');
+        var num = 0;
+        show();
+        $(document).scroll(show);
+        function show() {
+            var viewHeight = $(window).height();
+            var docScroll = $(document).scrollTop();
+
+            if (num == $img.length) {
+                return;
+            }
+
+            $img.each(function (i, el) {
+
+                if ($(el).offset().top < (viewHeight + docScroll) && $(el).attr('flag')) {
+                    $(el).attr('src', $(el).attr('_src')).removeAttr('flag').hide().fadeIn(200);
+                    num++;
+                }
+
+            });
+        }
+        var openid = $.cookie('baby_openid')
+        if (!openid) {
+            BABY.getWechatAddress()
+            return false;
+        }
+        var url = BABY.domain +  'zt/baby/share.html?openid='+openid;
+        var dataobj = {
+            "title": "Baby象家居火爆预售，好礼返利享不停",
+            "desc": "瓷砖、木地板、卫浴预售超低价，400个全屋免费瓷砖名额等你抢。",
+            "url": url,
+            "pic": BABY.domain + "/zt/baby/images/share.jpg"
+        }
+        BABY.share(dataobj)
+
+    })
+</script>
+</body>
+</html>
